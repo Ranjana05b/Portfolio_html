@@ -1,0 +1,449 @@
+/* =========================================================
+   On-Demand Solutions — Template v2 UI layer
+   Drop on top of style.css. Override --tpl-brand for product color.
+   Keep --mcp-accent / orange gradient Request Demo from style.css.
+   ========================================================= */
+:root {
+  --tpl-brand: #4d4cfe;
+  --tpl-brand-soft: #a5a4ff;
+  --tpl-brand-deep: #2e2ed1;
+}
+
+.tpl-v2 .mcp-header .navbar-brand img {
+  max-height: 56px;
+  width: auto;
+  height: 56px;
+}
+
+.tpl-v2 .mcp-header.scrolled {
+  background: rgba(14, 20, 28, 0.92);
+  border-bottom: 1px solid color-mix(in srgb, var(--tpl-brand) 22%, transparent);
+}
+
+.tpl-v2 .mcp-header .nav-link {
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 8px 10px !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.tpl-v2 .mcp-header .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--tpl-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+
+.tpl-v2 .mcp-header .nav-link:hover,
+.tpl-v2 .mcp-header .nav-link.active {
+  color: #fff !important;
+}
+
+.tpl-v2 .mcp-header .nav-link:hover::after,
+.tpl-v2 .mcp-header .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.tpl-v2 .btn-nav-demo {
+  min-height: 44px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.tpl-v2 .mcp-header .navbar-toggler {
+  border-color: color-mix(in srgb, var(--tpl-brand) 45%, transparent);
+}
+
+@media (max-width: 991.98px) {
+  .tpl-v2 .mcp-header .navbar-collapse {
+    background: #121820;
+    border: 1px solid color-mix(in srgb, var(--tpl-brand) 18%, transparent);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  .tpl-v2 .mcp-header .nav-link {
+    padding: 10px 12px !important;
+  }
+
+  .tpl-v2 .mcp-header .nav-link::after {
+    display: none;
+  }
+}
+
+.tpl-v2 .hero-badge {
+  background: color-mix(in srgb, var(--tpl-brand) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tpl-brand) 35%, transparent);
+  color: var(--tpl-brand-soft);
+}
+
+/* Keep reference orange gradient Request Demo buttons — do not override .btn-mcp-accent */
+.tpl-v2 .store-btn:hover,
+.tpl-v2 .package-tabs .nav-link.active,
+.tpl-v2 .gallery-filters button.active {
+  background: var(--tpl-brand) !important;
+  border-color: var(--tpl-brand) !important;
+}
+
+.tpl-v2 .section-eyebrow i,
+.tpl-v2 .icon-box.accent,
+.tpl-v2 .package-panel .feature-list li i {
+  color: var(--tpl-brand);
+}
+
+.tpl-v2 .icon-box.accent {
+  background: color-mix(in srgb, var(--tpl-brand) 12%, transparent);
+}
+
+.tpl-v2 .timeline-dot {
+  background: var(--tpl-brand);
+  border-color: var(--tpl-brand);
+  color: #fff;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--tpl-brand) 18%, transparent);
+}
+
+.tpl-v2 .footer-brand img {
+  max-height: 52px;
+  width: auto;
+  height: 52px;
+}
+
+/* ---------- Hero device stage ---------- */
+.tpl-v2 .hero-visual {
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tpl-v2 .hero-devices {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 520px;
+  margin: 0 auto;
+}
+
+.tpl-v2 .hero-devices .macbook {
+  position: absolute;
+  left: 50%;
+  top: 28px;
+  width: min(100%, 440px);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.tpl-v2 .hero-devices .iphone-16.p1 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 184px;
+  z-index: 3;
+  animation: tplPhoneFloat 5s ease-in-out infinite;
+}
+
+.tpl-v2 .hero-devices .iphone-16.p2 {
+  position: absolute;
+  left: 0;
+  bottom: 24px;
+  width: 168px;
+  z-index: 2;
+  animation: tplPhoneFloat 5s ease-in-out infinite;
+  animation-delay: -2.5s;
+}
+
+@keyframes tplPhoneFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tpl-v2 .hero-devices .iphone-16 {
+    animation: none;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .tpl-v2 .hero-devices {
+    height: 440px;
+    max-width: 460px;
+  }
+  .tpl-v2 .hero-devices .macbook {
+    width: min(100%, 340px);
+    top: 16px;
+  }
+  .tpl-v2 .hero-devices .iphone-16.p1 {
+    width: 148px;
+  }
+  .tpl-v2 .hero-devices .iphone-16.p2 {
+    width: 134px;
+  }
+}
+
+/* ---------- iPhone 16 frame ---------- */
+.iphone-16 {
+  position: relative;
+  width: 176px;
+  padding: 7px;
+  background:
+    linear-gradient(90deg, #7a7a80 0%, #3a3a3e 7%, #1f1f22 50%, #3a3a3e 93%, #7a7a80 100%);
+  border-radius: 32px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.28),
+    inset 0 0 0 3.5px #121214,
+    0 22px 48px rgba(0, 0, 0, 0.42);
+}
+
+.iphone-screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 25px;
+  background: #f7f9fa;
+}
+
+.iphone-status {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  height: 26px;
+  padding: 0 12px;
+  color: #1c1c1e;
+  background: #f7f9fa;
+}
+
+.iphone-time {
+  position: relative;
+  z-index: 1;
+  width: 28%;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-family: -apple-system, "SF Pro Text", "Segoe UI", sans-serif;
+}
+
+.iphone-island {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 32%;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  background: #050505;
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.iphone-island::before,
+.iphone-island::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.iphone-island::before {
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 35% 35%, #2a3340 0%, #0a1018 70%);
+  box-shadow: inset 0 0 0 1.5px #1a1a1c;
+}
+
+.iphone-island::after {
+  right: 7px;
+  width: 5px;
+  height: 5px;
+  background: #1a1a1c;
+  box-shadow: 0 0 0 2px #0c0c0e;
+}
+
+.iphone-sys {
+  position: relative;
+  z-index: 1;
+  width: 36px;
+  height: 10px;
+  margin-left: auto;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 12'%3E%3Crect x='0' y='8' width='2.2' height='4' rx='.4' fill='black'/%3E%3Crect x='3.2' y='5.5' width='2.2' height='6.5' rx='.4' fill='black'/%3E%3Crect x='6.4' y='3' width='2.2' height='9' rx='.4' fill='black'/%3E%3Crect x='9.6' y='.5' width='2.2' height='11.5' rx='.4' fill='black'/%3E%3Cpath d='M18.2 9.4a2.4 2.4 0 013.4 0' fill='none' stroke='black' stroke-width='1.25' stroke-linecap='round'/%3E%3Cpath d='M16.6 7.4a4.6 4.6 0 016.6 0' fill='none' stroke='black' stroke-width='1.25' stroke-linecap='round'/%3E%3Cpath d='M15.2 5.4a6.6 6.6 0 019.4 0' fill='none' stroke='black' stroke-width='1.25' stroke-linecap='round'/%3E%3Ccircle cx='19.9' cy='11' r='.85' fill='black'/%3E%3Crect x='34.5' y='2' width='16.5' height='8' rx='1.6' fill='none' stroke='black' stroke-width='1.2'/%3E%3Crect x='36' y='3.35' width='11.6' height='5.3' rx='.7' fill='black'/%3E%3Crect x='51.5' y='4.2' width='1.4' height='3.6' rx='.4' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 12'%3E%3Crect x='0' y='8' width='2.2' height='4' rx='.4' fill='black'/%3E%3Crect x='3.2' y='5.5' width='2.2' height='6.5' rx='.4' fill='black'/%3E%3Crect x='6.4' y='3' width='2.2' height='9' rx='.4' fill='black'/%3E%3Crect x='9.6' y='.5' width='2.2' height='11.5' rx='.4' fill='black'/%3E%3Cpath d='M18.2 9.4a2.4 2.4 0 013.4 0' fill='none' stroke='black' stroke-width='1.25' stroke-linecap='round'/%3E%3Cpath d='M16.6 7.4a4.6 4.6 0 016.6 0' fill='none' stroke='black' stroke-width='1.25' stroke-linecap='round'/%3E%3Cpath d='M15.2 5.4a6.6 6.6 0 019.4 0' fill='none' stroke='black' stroke-width='1.25' stroke-linecap='round'/%3E%3Ccircle cx='19.9' cy='11' r='.85' fill='black'/%3E%3Crect x='34.5' y='2' width='16.5' height='8' rx='1.6' fill='none' stroke='black' stroke-width='1.2'/%3E%3Crect x='36' y='3.35' width='11.6' height='5.3' rx='.7' fill='black'/%3E%3Crect x='51.5' y='4.2' width='1.4' height='3.6' rx='.4' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.iphone-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+  background: #e9eef1;
+}
+
+.iphone-home {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  z-index: 3;
+  width: 34%;
+  height: 4px;
+  transform: translateX(-50%);
+  background: rgba(28, 28, 30, 0.28);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.iphone-16.is-dark .iphone-screen,
+.iphone-16.is-dark .iphone-status {
+  background: #182028;
+  color: #fff;
+}
+
+.iphone-16.is-dark .iphone-screen img {
+  background: #182028;
+}
+
+.iphone-16.is-dark .iphone-home {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+/* ---------- MacBook / laptop frame ---------- */
+.macbook {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.macbook-lid {
+  position: relative;
+  padding: 10px 10px 0;
+  background: linear-gradient(180deg, #3a3a3e 0%, #1c1c1f 100%);
+  border-radius: 14px 14px 0 0;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.macbook-camera {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #0a0a0a;
+  box-shadow: inset 0 0 0 1px #2a2a2e;
+}
+
+.macbook-screen {
+  overflow: hidden;
+  border-radius: 4px 4px 0 0;
+  background: #0e1929;
+}
+
+.macbook-screen img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.macbook-base {
+  position: relative;
+  height: 12px;
+  margin: 0 -8px;
+  background: linear-gradient(180deg, #c8c8cc 0%, #9a9aa0 55%, #7e7e84 100%);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+}
+
+.macbook-base::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  width: 18%;
+  height: 4px;
+  transform: translateX(-50%);
+  border-radius: 0 0 4px 4px;
+  background: #6e6e74;
+}
+
+/* Package / gallery device sizes */
+.package-phone {
+  width: 200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.package-laptop {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.gallery-phone {
+  margin: 0 auto 8px;
+  max-width: 200px;
+  padding: 0 6px;
+  text-align: center;
+}
+
+.gallery-phone .iphone-16 {
+  width: 100%;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.gallery-phone:hover .iphone-16 {
+  transform: translateY(-6px);
+}
+
+.gallery-laptop {
+  margin: 0 auto 8px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.gallery-laptop .macbook {
+  transition: transform 0.3s ease;
+}
+
+.gallery-laptop:hover .macbook {
+  transform: translateY(-6px);
+}
+
+.gallery-phone figcaption,
+.gallery-laptop figcaption {
+  margin-top: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--mcp-dark, #182028);
+}
+
+[data-gallery-item].hidden {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-phone:hover .iphone-16,
+  .gallery-laptop:hover .macbook {
+    transform: none;
+  }
+}
